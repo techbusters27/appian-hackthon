@@ -1,41 +1,63 @@
-Walkthrough: Appian Just-in-Time Knowledge Retrieval
-I have completed the design and prototyping for the "Just-in-Time" knowledge retrieval system. This solution addresses the "Alt-Tab" problem by proactively pushing context-aware policy documents to agents directly within Appian.
+🛡️ Insurance Claim Assistant
+AI-Powered Policy Matching & Claim Analysis System
+📌 Project Overview
 
-Solution Architecture
-The solution is composed of three main parts:
+The Insurance Claim Assistant is a web-based AI application that helps analyze insurance claims by matching them against uploaded policy documents.
+It uses Natural Language Processing (NLP) and semantic similarity to identify relevant policy clauses and assist claim verification.
 
-The Brain (Ingestion): Python script to chunk PDFs and store them with verifiable metadata.
-The Bridge (Integration): Appian objects to query the Vector DB based on case context.
-The Assistant (UI): A side-panel interface that displays results with deep links to specific pages.
-Artifacts Created
-Component	File	Description
-Data Schema	vector_schema.md	Defines metadata for "Verifiable Citations" (pages, paragraphs).
-Ingestion	knowledge_ingestion.py	Python script to ingest PDFs and upload to Vector DB.
-Integration	Appian_Integration_Design.md	Design for Connected System & Integration Object.
-User Interface	Appian_UI_Components.md	SAIL design for the "Knowledge Assistant" side panel.
-Plan	implementation_plan.md	Initial technical plan.
-Verification Results
-Knowledge Ingestion Prototype
-I ran the knowledge_ingestion.py script to simulate the ingestion of an "Auto Claims Policy".
+This project demonstrates how AI can improve claim assessment accuracy, speed, and transparency.
 
-Command: python knowledge_ingestion.py
+🎯 Key Features
 
-Output:
+📂 Upload insurance policy documents (PDF)
 
-Initialized Knowledge Engine for index: appian-knowledge
-Loading document: Auto_Claims_Policy_v2.pdf
-Created 4 chunks from document.
-Upserting 4 vectors to Pinecone/Weaviate...
-Upsert complete.
-Interactive Demo (Streamlit)
-I have created a local interactive prototype that simulates the Appian embedded experience.
+🧠 AI-based semantic search using embeddings
 
-Files Created:
+🔍 Match claim descriptions with policy clauses
 
-simple_vector_store.py: Local RAG using sentence-transformers.
-demo_app.py: Streamlit database dashboard.
-How to Run:
+📊 Display relevant policy matches with confidence
 
-Install dependencies: pip install streamlit sentence-transformers faiss-cpu
-Run the app: python -m streamlit run demo_app.py
-Open the URL (usually http://localhost:8501) to interact with the "Appian Knowledge Assistant".
+🎨 Professional, modern UI
+
+⚡ Built using Streamlit for rapid deployment
+
+🧱 Tech Stack
+Layer	Technology
+Frontend UI	HTML, CSS
+Web Framework	Streamlit
+AI / NLP	Sentence Transformers
+Vector Search	Local Vector Store
+Backend	Python
+PDF Handling	PyPDF
+Environment	Python Virtual Environment
+📁 Project Structure
+appian-main/
+│
+├── frontend/
+│   ├── demo_app.py        # Main Streamlit app
+│   ├── index.html         # UI layout
+│   ├── style.css          # UI styling
+│
+├── simple_vector_store.py # Vector search logic
+├── knowledge_ingestion.py # Policy ingestion
+├── venv/                  # Virtual environment
+├── README.md              # Project documentation
+
+🚀 How to Run the Project (VS Code)
+1️⃣ Clone the Repository
+git clone https://github.com/YOUR-USERNAME/insurance-claim-assistant.git
+cd insurance-claim-assistant
+
+2️⃣ Create & Activate Virtual Environment
+python -m venv venv
+venv\Scripts\activate
+
+3️⃣ Install Dependencies
+pip install streamlit sentence-transformers transformers tf-keras
+
+4️⃣ Run the Application
+cd frontend
+streamlit run demo_app.py
+
+5️⃣ Open in Browser
+http://localhost:8501
